@@ -34,4 +34,4 @@
 #    	define RGBLIGHT_LIMIT_VAL 150
 #    endif
 #endif
-#define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
+#define TAPPING_TOGGLE 2
