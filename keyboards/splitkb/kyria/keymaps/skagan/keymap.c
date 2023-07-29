@@ -32,9 +32,9 @@ enum layers {
 // #define COLEMAK  DF(_COLEMAK_DH)
 // #define DVORAK   DF(_DVORAK)
 
-#define SYM      MO(_SYM)
+#define SYM      TT(_SYM)
 #define NAV      MO(_NAV)
-#define FKEYS    MO(_FUNCTION)
+#define FKEYS    TT(_FUNCTION)
 // #define ADJUST   MO(_ADJUST)
 
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
@@ -46,15 +46,6 @@ enum layers {
 // The notation `mod/tap` denotes a key that activates the modifier `mod` when held down, and
 // produces the key `tap` when tapped (i.e. pressed and released).
 
-enum unicode_names {
-    OPEN_PAREN,
-    CLOSE_PAREN
-};
-const uint32_t unicode_map[] PROGMEM = {
-    [OPEN_PAREN]  = 0x0028,  // (
-    [CLOSE_PAREN] = 0x0029,  // )
-};
-
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
@@ -65,17 +56,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * | Tab    |   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : | '"     |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | `~     |   Z  |   X  |   C  |   V  |   B  |      | FKEYS|  |      |      |   N  |   M  | ,  < | . >  | /  ? | =+     |
+ * | `~     |   Z  |   X  |   C  |   V  |   B  | LAlt | LCtrl|  | RCtrl| RAlt |   N  |   M  | ,  < | . >  | /  ? | =+     |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | LGUI | LCtrl| SYM  |LShift| Space|  | Enter|Rshift| Bksp | RCtrl| RAlt |
+ *                        | LGUI | FKEYS| SYM  |LShift| Space|  | Enter|Rshift| Bksp | Tab  | RGUI |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_SAM] = LAYOUT(
-     KC_ESC  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y ,  KC_U ,  KC_I ,   KC_O ,  KC_P , KC_MINS,
-     KC_TAB , KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H  ,  KC_J ,  KC_K ,   KC_L ,KC_SCLN, KC_QUOT,
-     KC_GRV , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B ,_______,TT(_FUNCTION),_______, _______, KC_N  ,  KC_M , KC_COMM, KC_DOT ,KC_SLSH, KC_EQL,
-                                KC_LGUI, KC_LCTL, SYM ,  KC_LSFT, KC_SPC,       KC_ENT,KC_RSFT ,KC_BSPC,KC_RCTL, KC_RALT
+     KC_ESC , KC_Q ,  KC_W   ,  KC_E  , KC_R  ,KC_T ,                                        KC_Y  , KC_U ,  KC_I ,   KC_O ,  KC_P , KC_MINS,
+     KC_TAB , KC_A ,  KC_S   ,  KC_D  ,  KC_F ,KC_G ,                                        KC_H  , KC_J ,  KC_K ,   KC_L ,KC_SCLN, KC_QUOT,
+     KC_GRV , KC_Z ,  KC_X   ,  KC_C   ,  KC_V, KC_B,KC_LALT,KC_LCTL,      KC_RCTL,KC_RALT , KC_N  , KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_EQL ,
+                                KC_LGUI, FKEYS, SYM ,KC_LSFT, KC_SPC,       KC_ENT,KC_RSFT ,KC_BSPC,KC_TAB,KC_RGUI
     ),
 
 /*
