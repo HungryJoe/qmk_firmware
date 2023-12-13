@@ -33,6 +33,7 @@
 #    ifndef RGBLIGHT_LIMIT_VAL
 #    	define RGBLIGHT_LIMIT_VAL 150
 #    endif
+#    define RGBLIGHT_LAYERS
 #endif
 #define TAPPING_TOGGLE 2
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
