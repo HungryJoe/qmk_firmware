@@ -56,17 +56,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * | Esc    |   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : | '"     |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | ]}     |   Z  |   X  |   C  |   V  |   B  | LAlt | LCtrl|  | RCtrl| RAlt |   N  |   M  | ,  < | . >  | /  ? | =+     |
+ * | ]}     |   Z  |   X  |   C  |   V  |   B  | LAlt | LGUI |  | RCtrl| RAlt |   N  |   M  | ,  < | . >  | /  ? | =+     |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | LGUI | FKEYS| SYM  |LShift| Space|  | Enter|Rshift| Bksp | Tab  | RGUI |
+ *                        | LCtrl| FKEYS| SYM  |LShift| Space|  | Enter|Rshift| Bksp | Tab  | RGUI |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_SAM] = LAYOUT(
      KC_LBRC, KC_Q ,  KC_W   ,  KC_E  , KC_R  ,KC_T ,                                        KC_Y  , KC_U ,  KC_I ,   KC_O ,  KC_P , KC_MINS,
      KC_ESC , KC_A ,  KC_S   ,  KC_D  ,  KC_F ,KC_G ,                                        KC_H  , KC_J ,  KC_K ,   KC_L ,KC_SCLN, KC_QUOT,
-     KC_RBRC, KC_Z ,  KC_X   ,  KC_C   ,  KC_V, KC_B,KC_LALT,KC_LCTL,      KC_RCTL,KC_RALT , KC_N  , KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_EQL ,
-                                KC_LGUI, FKEYS, SYM ,KC_LSFT, KC_SPC,       KC_ENT,KC_RSFT ,KC_BSPC,KC_TAB,KC_RGUI
+     KC_RBRC, KC_Z ,  KC_X   ,  KC_C   ,  KC_V, KC_B,KC_LALT,KC_LGUI,      KC_RCTL,KC_RALT , KC_N  , KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_EQL ,
+                                KC_LCTL, FKEYS, SYM ,KC_LSFT, KC_SPC,       KC_ENT,KC_RSFT ,KC_BSPC,KC_TAB,KC_RGUI
     ),
 
 /*
