@@ -13,6 +13,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include <avr/pgmspace.h>
+#include "color.h"
+#include "rgblight.h"
 #include QMK_KEYBOARD_H
 
 enum layers {
@@ -237,6 +240,59 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 //     ),
 };
+
+// RGB layer lighting
+// There's a bug with my right-hand controller
+const rgblight_segment_t PROGMEM sam_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 10, HSV_PURPLE},
+    {2, 10, HSV_PURPLE},
+    {3, 10, HSV_PURPLE},
+    {4, 10, HSV_PURPLE},
+    {9, 10, HSV_PURPLE},
+    {10, 10, HSV_PURPLE}
+);
+
+const rgblight_segment_t PROGMEM sym_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 10, RGB_AZURE},
+    {2, 10, RGB_AZURE},
+    {3, 10, RGB_AZURE},
+    {4, 10, RGB_AZURE},
+    {9, 10, RGB_AZURE},
+    {10, 10, RGB_AZURE}
+);
+
+const rgblight_segment_t PROGMEM function_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 10, RGB_PINK},
+    {2, 10, RGB_PINK},
+    {3, 10, RGB_PINK},
+    {4, 10, RGB_PINK},
+    {9, 10, RGB_PINK},
+    {10, 10, RGB_PINK}
+);
+
+// Now define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    sam_layer,
+    sym_layer,
+    function_layer
+);
+
+// Define layers in post-init hook
+void keyboard_post_init_user(void) {
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+}
+
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, _SAM));
+    return state;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(1, layer_state_cmp(state, _SYM));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _FUNCTION));
+    return state;
+}
 
 /* The default OLED and rotary encoder code can be found at the bottom of qmk_firmware/keyboards/splitkb/kyria/rev1/rev1.c
  * These default settings can be overriden by your own settings in your keymap.c
