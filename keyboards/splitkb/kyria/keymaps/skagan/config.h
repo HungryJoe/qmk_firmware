@@ -37,3 +37,4 @@
 #endif
 #define TAPPING_TOGGLE 1
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define TAPPING_TERM 150
