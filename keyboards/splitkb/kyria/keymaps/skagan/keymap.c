@@ -61,15 +61,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * | ]}     |   Z  |   X  |   C  |   V  |   B  | LAlt | LGUI |  | RCtrl| RAlt |   N  |   M  | ,  < | . >  | /  ? | =+     |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | LCtrl| FKEYS| SYM  |LShift| Space|  | Enter|Rshift| Bksp | Tab  | RGUI |
+ *                        | LCtrl| FKEYS| Tab  |LShift| Space|  | Enter|Rshift| Bksp | SYM  | RGUI |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_SAM] = LAYOUT(
-     KC_LBRC, KC_Q ,  KC_W   ,  KC_E  , KC_R  ,KC_T ,                                        KC_Y  , KC_U ,  KC_I ,   KC_O ,  KC_P , KC_MINS,
-     KC_ESC , KC_A ,  KC_S   ,  KC_D  ,  KC_F ,KC_G ,                                        KC_H  , KC_J ,  KC_K ,   KC_L ,KC_SCLN, KC_QUOT,
-     KC_RBRC, KC_Z ,  KC_X   ,  KC_C   ,  KC_V, KC_B,KC_LALT,KC_LGUI,      KC_RCTL,KC_RALT , KC_N  , KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_EQL ,
-                                KC_LCTL, FKEYS, SYM ,KC_LSFT, KC_SPC,       KC_ENT,KC_RSFT ,KC_BSPC,KC_TAB,KC_RGUI
+     KC_LBRC, KC_Q ,  KC_W   ,  KC_E  , KC_R  , KC_T ,                                        KC_Y  , KC_U ,  KC_I ,   KC_O ,  KC_P , KC_MINS,
+     KC_ESC , KC_A ,  KC_S   ,  KC_D  ,  KC_F , KC_G ,                                        KC_H  , KC_J ,  KC_K ,   KC_L ,KC_SCLN, KC_QUOT,
+     KC_RBRC, KC_Z ,  KC_X   ,  KC_C   ,  KC_V, KC_B ,KC_LALT,KC_LGUI,      KC_RCTL,KC_RALT , KC_N  , KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_EQL ,
+                                KC_LCTL, FKEYS,KC_TAB,KC_LSFT, KC_SPC,       KC_ENT,KC_RSFT ,KC_BSPC, SYM  ,KC_RGUI
     ),
 
 /*
@@ -181,20 +181,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Function Layer: Function keys
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |  F9  | F10  | F11  | F12  |      |                              |      |      |      |      |      |        |
+ * |        |  F9  | F10  | F11  | F12  |      |                              |      |   -  |  _   |   =  | +    |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |        |  F5  |  F6  |  F7  |  F8  |      |                              |   <- | dwn  | ^    |  ->  |      |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |  F1  |  F2  |  F3  |  F4  |      |      |      |  |      |      |      |      |      |      |      |        |
+ * |        |  F1  |  F2  |  F3  |  F4  |      |      |      |  |      |      |      |  [   | {    |  ]   |  }   |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_FUNCTION] = LAYOUT(
-      _______,  KC_F9 ,  KC_F10,  KC_F11,  KC_F12, _______,                                     _______, _______, _______, _______, _______, _______,
+      _______,  KC_F9 ,  KC_F10,  KC_F11,  KC_F12, _______,                                     _______, KC_MINS, KC_UNDS, KC_EQL , KC_PLUS, _______,
       _______,  KC_F5 ,  KC_F6 ,  KC_F7 ,  KC_F8 , _______,                                     KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______,
-      _______,  KC_F1 ,  KC_F2 ,  KC_F3 ,  KC_F4 , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+      _______,  KC_F1 ,  KC_F2 ,  KC_F3 ,  KC_F4 , _______, _______, _______, _______, _______, _______, KC_LBRC, KC_LCBR, KC_RBRC, KC_RCBR, _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
